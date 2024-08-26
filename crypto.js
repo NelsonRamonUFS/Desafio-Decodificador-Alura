@@ -20,6 +20,14 @@ function decryptText(text) {
     return decryptedText;
 }
 
+// Função para copiar texto para a área de transferência
+function copyToClipboard() {
+    let outputText = document.getElementById('output-text');
+    outputText.select();
+    document.execCommand('copy');
+    alert("Texto copiado para a área de transferência!");
+}
+
 // Event listeners para os botões
 document.getElementById('encrypt-btn').addEventListener('click', function() {
     let inputText = document.getElementById('input-text').value.toLowerCase();
@@ -30,3 +38,6 @@ document.getElementById('decrypt-btn').addEventListener('click', function() {
     let inputText = document.getElementById('input-text').value.toLowerCase();
     document.getElementById('output-text').value = decryptText(inputText);
 });
+
+// Event listener para o botão de copiar
+document.getElementById('copy-btn').addEventListener('click', copyToClipboard);
